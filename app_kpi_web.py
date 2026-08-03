@@ -19,7 +19,7 @@ st.title("📊 MONITOR KPI 6 GOAL GRUP C")
 st.caption("Aplikasi Komando Evaluasi KPI, Reject, Defect PRI & BB (Code KMS 44), Absensi & K3 2026")
 st.divider()
 
-# Database KMS 44
+# Database Utama 2026 Lengkap
 DATA_UTAMA_2026 = {
     "Januari":  {"cw": 474402.00, "spb": 180637.00, "paid_karu": 1919.00, "paid_wt": 380.00, "real_cw": 37671, "rij_cw": 139, "real_spb": 15053, "rij_spb": 63, "polos": 4600050, "pri_pcs": 332058, "pri_pct": 7.22, "bb_pcs": 138281, "bb_pct": 3.01, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
     "Februari": {"cw": 400056.00, "spb": 162814.00, "paid_karu": 1545.49, "paid_wt": 321.88, "real_cw": 30018, "rij_cw": 106, "real_spb": 13513, "rij_spb": 87, "polos": 3975075, "pri_pcs": 264797, "pri_pct": 6.66, "bb_pcs": 136665, "bb_pct": 3.44, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
@@ -40,7 +40,7 @@ d = DATA_UTAMA_2026[bulan]
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🎯 Goal 1", "📊 Goal 2", "🕳️ Goal 3", "🧩 Goal 4", "🙋 Goal 5", "⛑️ Goal 6"])
 
-# --- TAB 1 ---
+# --- TAB 1: GOAL 1 ---
 with tab1:
     total_sj = d['cw'] + d['spb']
     paid_hour = (d['paid_karu'] + d['paid_wt']) if "KASIE" in jabatan else d['paid_karu']
@@ -59,12 +59,14 @@ with tab1:
     else:
         st.error(f"❌ **GOAL 1 TIDAK TERCAPAI**\n\nSkor KPI {jabatan} Bulan {bulan}: **{kpi_skor:.2f}** (Target Standar: {target_std})")
 
-# --- TAB 2 ---
+# --- TAB 2: GOAL 2 (TERDAPAT RINCIAN PRODUKSI REAL TKP & REJECT) ---
 with tab2:
     real_cw, rij_cw = d['real_cw'], d['rij_cw']
     pct_cw = (rij_cw / real_cw * 100) if real_cw > 0 else 0
+    
     real_spb, rij_spb = d['real_spb'], d['rij_spb']
     pct_spb = (rij_spb / real_spb * 100) if real_spb > 0 else 0
+    
     total_real = real_cw + real_spb
     total_rij = rij_cw + rij_spb
     pct_total = (total_rij / total_real * 100) if total_real > 0 else 0
@@ -72,10 +74,19 @@ with tab2:
     st.subheader(f"🔍 Goal 2: Quality Reject TKP / Press - {bulan}")
     st.write(f"- **Bobot Evaluasi:** `25%` | **Target Maksimal:** `0,60%`")
     
+    # Indikator Persentase & Nilai Reject
     m1, m2, m3 = st.columns(3)
     m1.metric("Reject TK CW", f"{pct_cw:.2f}%", f"{rij_cw:,} kg", delta_color="inverse")
     m2.metric("Reject TK SPB", f"{pct_spb:.2f}%", f"{rij_spb:,} kg", delta_color="inverse")
     m3.metric("Total Reject", f"{pct_total:.2f}%", f"{total_rij:,} kg", delta_color="inverse")
+
+    st.divider()
+    
+    # Rincian Produksi Real TKP yang Ditambahkan
+    st.write(f"📌 **Detail Produksi Real vs Reject TKP ({bulan}):**")
+    st.write(f"• **TK CW:** Produksi Real = `{real_cw:,} kg` | Reject = `{rij_cw:,} kg` (**{pct_cw:.2f}%**)")
+    st.write(f"• **TK SPB:** Produksi Real = `{real_spb:,} kg` | Reject = `{rij_spb:,} kg` (**{pct_spb:.2f}%**)")
+    st.write(f"• **TOTAL TKP:** Total Produksi Real = `{total_real:,} kg` | Total Reject = `{total_rij:,} kg` (**{pct_total:.2f}%**)")
 
     st.divider()
     if pct_total <= 0.60:
@@ -83,7 +94,7 @@ with tab2:
     else:
         st.error(f"❌ **GOAL 2 TIDAK TERCAPAI**\n\nTotal Reject Press Bulan {bulan}: **{pct_total:.2f}%** (Target Maksimal: 0,60%)")
 
-# --- TAB 3 (CODE KMS 44) ---
+# --- TAB 3 ---
 with tab3:
     pri_pct, pri_pcs, polos = d['pri_pct'], d['pri_pcs'], d['polos']
     target_pri = 6.00
@@ -106,7 +117,7 @@ with tab3:
     else:
         st.error(f"❌ **GOAL 3 TIDAK TERCAPAI**\n\nPersentase Defect PRI (KMS 44) Bulan {bulan}: **{pri_pct:.2f}%** (Target Maksimal: 6,00%)")
 
-# --- TAB 4 (CODE KMS 44) ---
+# --- TAB 4 ---
 with tab4:
     bb_pcs, bb_pct, polos = d['bb_pcs'], d['bb_pct'], d['polos']
     target_bb = 5.00
