@@ -19,15 +19,15 @@ st.title("📊 MONITOR KPI 6 GOAL GRUP C")
 st.caption("Aplikasi Komando Evaluasi KPI, Reject, Defect PRI & BB (Code KMS 44), Absensi & K3 2026")
 st.divider()
 
-# Database Utama 2026 Lengkap
+# Database Utama 2026 (Grand Total Produksi Real)
 DATA_UTAMA_2026 = {
-    "Januari":  {"cw": 474402.00, "spb": 180637.00, "paid_karu": 1919.00, "paid_wt": 380.00, "real_cw": 37671, "rij_cw": 139, "real_spb": 15053, "rij_spb": 63, "polos": 4600050, "pri_pcs": 332058, "pri_pct": 7.22, "bb_pcs": 138281, "bb_pct": 3.01, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
-    "Februari": {"cw": 400056.00, "spb": 162814.00, "paid_karu": 1545.49, "paid_wt": 321.88, "real_cw": 30018, "rij_cw": 106, "real_spb": 13513, "rij_spb": 87, "polos": 3975075, "pri_pcs": 264797, "pri_pct": 6.66, "bb_pcs": 136665, "bb_pct": 3.44, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
-    "Maret":    {"cw": 68277.60,  "spb": 24085.00,  "paid_karu": 224.00,  "paid_wt": 56.00,  "real_cw": 6987,  "rij_cw": 12,  "real_spb": 2999,  "rij_spb": 25, "polos": 817247,  "pri_pcs": 50571,  "pri_pct": 6.19, "bb_pcs": 29685,  "bb_pct": 3.63, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
-    "April":    {"cw": 346951.36, "spb": 152698.90, "paid_karu": 1484.00, "paid_wt": 324.00, "real_cw": 27505, "rij_cw": 85,  "real_spb": 12689, "rij_spb": 141, "polos": 3457645, "pri_pcs": 270773, "pri_pct": 7.83, "bb_pcs": 120199, "bb_pct": 3.48, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
-    "Mei":      {"cw": 465804.96, "spb": 273485.18, "paid_karu": 1913.00, "paid_wt": 374.50, "real_cw": 36763, "rij_cw": 81,  "real_spb": 22649, "rij_spb": 267, "polos": 4359224, "pri_pcs": 339304, "pri_pct": 7.78, "bb_pcs": 245059, "bb_pct": 5.62, "sd": 2, "alpa": 0, "hk_bulan": 312, "accident": 0},
-    "Juni":     {"cw": 294099.44, "spb": 280349.40, "paid_karu": 1882.42, "paid_wt": 368.50, "real_cw": 23171, "rij_cw": 54,  "real_spb": 23225, "rij_spb": 203, "polos": 4422447, "pri_pcs": 344396, "pri_pct": 7.79, "bb_pcs": 276311, "bb_pct": 6.25, "sd": 3, "alpa": 0, "hk_bulan": 312, "accident": 0},
-    "Juli":     {"cw": 380000.00, "spb": 210000.00, "paid_karu": 1600.00, "paid_wt": 310.00, "real_cw": 29172, "rij_cw": 50,  "real_spb": 17569, "rij_spb": 200, "polos": 4422447, "pri_pcs": 344396, "pri_pct": 7.79, "bb_pcs": 276311, "bb_pct": 6.25, "sd": 3, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "Januari":  {"cw": 474402.00, "spb": 180637.00, "paid_karu": 1919.00, "paid_wt": 380.00, "real_cw": 37671, "rij_cw": 139, "real_spb": 15053, "rij_spb": 63, "tot_real": 52724, "tot_rij": 202, "grand_tot": 52926, "polos": 4600050, "pri_pcs": 332058, "pri_pct": 7.22, "bb_pcs": 138281, "bb_pct": 3.01, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "Februari": {"cw": 400056.00, "spb": 162814.00, "paid_karu": 1545.49, "paid_wt": 321.88, "real_cw": 30018, "rij_cw": 106, "real_spb": 13513, "rij_spb": 87, "tot_real": 43531, "tot_rij": 193, "grand_tot": 43724, "polos": 3975075, "pri_pcs": 264797, "pri_pct": 6.66, "bb_pcs": 136665, "bb_pct": 3.44, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "Maret":    {"cw": 68277.60,  "spb": 24085.00,  "paid_karu": 224.00,  "paid_wt": 56.00,  "real_cw": 6987,  "rij_cw": 12,  "real_spb": 2999,  "rij_spb": 25, "tot_real": 9986,  "tot_rij": 37,  "grand_tot": 10023, "polos": 817247,  "pri_pcs": 50571,  "pri_pct": 6.19, "bb_pcs": 29685,  "bb_pct": 3.63, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "April":    {"cw": 346951.36, "spb": 152698.90, "paid_karu": 1484.00, "paid_wt": 324.00, "real_cw": 27505, "rij_cw": 85,  "real_spb": 12689, "rij_spb": 141, "tot_real": 40194, "tot_rij": 226, "grand_tot": 40420, "polos": 3457645, "pri_pcs": 270773, "pri_pct": 7.83, "bb_pcs": 120199, "bb_pct": 3.48, "sd": 0, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "Mei":      {"cw": 465804.96, "spb": 273485.18, "paid_karu": 1913.00, "paid_wt": 374.50, "real_cw": 36763, "rij_cw": 81,  "real_spb": 22649, "rij_spb": 267, "tot_real": 59412, "tot_rij": 348, "grand_tot": 59760, "polos": 4359224, "pri_pcs": 339304, "pri_pct": 7.78, "bb_pcs": 245059, "bb_pct": 5.62, "sd": 2, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "Juni":     {"cw": 294099.44, "spb": 280349.40, "paid_karu": 1882.42, "paid_wt": 368.50, "real_cw": 23171, "rij_cw": 54,  "real_spb": 23225, "rij_spb": 203, "tot_real": 46396, "tot_rij": 257, "grand_tot": 46653, "polos": 4422447, "pri_pcs": 344396, "pri_pct": 7.79, "bb_pcs": 276311, "bb_pct": 6.25, "sd": 3, "alpa": 0, "hk_bulan": 312, "accident": 0},
+    "Juli":     {"cw": 380000.00, "spb": 210000.00, "paid_karu": 1600.00, "paid_wt": 310.00, "real_cw": 36332, "rij_cw": 72,  "real_spb": 22606, "rij_spb": 227, "tot_real": 58938, "tot_rij": 299, "grand_tot": 59237, "polos": 4422447, "pri_pcs": 344396, "pri_pct": 7.79, "bb_pcs": 276311, "bb_pct": 6.25, "sd": 3, "alpa": 0, "hk_bulan": 312, "accident": 0},
 }
 
 col1, col2 = st.columns(2)
@@ -40,7 +40,7 @@ d = DATA_UTAMA_2026[bulan]
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🎯 Goal 1", "📊 Goal 2", "🕳️ Goal 3", "🧩 Goal 4", "🙋 Goal 5", "⛑️ Goal 6"])
 
-# --- TAB 1: GOAL 1 ---
+# --- TAB 1 ---
 with tab1:
     total_sj = d['cw'] + d['spb']
     paid_hour = (d['paid_karu'] + d['paid_wt']) if "KASIE" in jabatan else d['paid_karu']
@@ -59,40 +59,38 @@ with tab1:
     else:
         st.error(f"❌ **GOAL 1 TIDAK TERCAPAI**\n\nSkor KPI {jabatan} Bulan {bulan}: **{kpi_skor:.2f}** (Target Standar: {target_std})")
 
-# --- TAB 2: GOAL 2 (TERDAPAT RINCIAN PRODUKSI REAL TKP & REJECT) ---
+# --- TAB 2: GOAL 2 (PEMBAGI = GRAND TOTAL PRODUKSI REAL) ---
 with tab2:
     real_cw, rij_cw = d['real_cw'], d['rij_cw']
-    pct_cw = (rij_cw / real_cw * 100) if real_cw > 0 else 0
-    
     real_spb, rij_spb = d['real_spb'], d['rij_spb']
-    pct_spb = (rij_spb / real_spb * 100) if real_spb > 0 else 0
-    
-    total_real = real_cw + real_spb
-    total_rij = rij_cw + rij_spb
-    pct_total = (total_rij / total_real * 100) if total_real > 0 else 0
+    tot_real, tot_rij = d['tot_real'], d['tot_rij']
+    grand_tot = d['grand_tot']
+
+    pct_cw = (rij_cw / grand_tot * 100) if grand_tot > 0 else 0
+    pct_spb = (rij_spb / grand_tot * 100) if grand_tot > 0 else 0
+    pct_total = (tot_rij / grand_tot * 100) if grand_tot > 0 else 0
 
     st.subheader(f"🔍 Goal 2: Quality Reject TKP / Press - {bulan}")
     st.write(f"- **Bobot Evaluasi:** `25%` | **Target Maksimal:** `0,60%`")
+    st.caption("📌 *Standar Baru Kabag: Pembagi % Reject Menggunakan Grand Total Produksi Real*")
     
-    # Indikator Persentase & Nilai Reject
     m1, m2, m3 = st.columns(3)
     m1.metric("Reject TK CW", f"{pct_cw:.2f}%", f"{rij_cw:,} kg", delta_color="inverse")
     m2.metric("Reject TK SPB", f"{pct_spb:.2f}%", f"{rij_spb:,} kg", delta_color="inverse")
-    m3.metric("Total Reject", f"{pct_total:.2f}%", f"{total_rij:,} kg", delta_color="inverse")
+    m3.metric("Total % Reject", f"{pct_total:.2f}%", f"{tot_rij:,} kg", delta_color="inverse")
 
     st.divider()
-    
-    # Rincian Produksi Real TKP yang Ditambahkan
-    st.write(f"📌 **Detail Produksi Real vs Reject TKP ({bulan}):**")
-    st.write(f"• **TK CW:** Produksi Real = `{real_cw:,} kg` | Reject = `{rij_cw:,} kg` (**{pct_cw:.2f}%**)")
-    st.write(f"• **TK SPB:** Produksi Real = `{real_spb:,} kg` | Reject = `{rij_spb:,} kg` (**{pct_spb:.2f}%**)")
-    st.write(f"• **TOTAL TKP:** Total Produksi Real = `{total_real:,} kg` | Total Reject = `{total_rij:,} kg` (**{pct_total:.2f}%**)")
+    st.write(f"📌 **Detail Rincian Produksi & Formula ({bulan}):**")
+    st.write(f"• **Grand Total Produksi Real:** `{grand_tot:,} kg` (Real `{tot_real:,} kg` + Reject `{tot_rij:,} kg`)")
+    st.write(f"• **TK CW:** Real = `{real_cw:,} kg` | Reject = `{rij_cw:,} kg` $\\rightarrow$ **({rij_cw:,} / {grand_tot:,}) x 100% = {pct_cw:.2f}%**")
+    st.write(f"• **TK SPB:** Real = `{real_spb:,} kg` | Reject = `{rij_spb:,} kg` $\\rightarrow$ **({rij_spb:,} / {grand_tot:,}) x 100% = {pct_spb:.2f}%**")
+    st.write(f"• **TOTAL REJECT:** Total Reject = `{tot_rij:,} kg` $\\rightarrow$ **({tot_rij:,} / {grand_tot:,}) x 100% = {pct_total:.2f}%**")
 
     st.divider()
     if pct_total <= 0.60:
-        st.success(f"🔥 **GOAL 2 TERCAPAI!**\n\nTotal Reject Press Bulan {bulan}: **{pct_total:.2f}%** (Target Maksimal: 0,60%)")
+        st.success(f"🔥 **GOAL 2 TERCAPAI!**\n\nTotal % Reject Press Bulan {bulan}: **{pct_total:.2f}%** (Target Maksimal: 0,60%)")
     else:
-        st.error(f"❌ **GOAL 2 TIDAK TERCAPAI**\n\nTotal Reject Press Bulan {bulan}: **{pct_total:.2f}%** (Target Maksimal: 0,60%)")
+        st.error(f"❌ **GOAL 2 TIDAK TERCAPAI**\n\nTotal % Reject Press Bulan {bulan}: **{pct_total:.2f}%** (Target Maksimal: 0,60%)")
 
 # --- TAB 3 ---
 with tab3:
